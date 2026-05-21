@@ -16,10 +16,6 @@ import {
   DialogFooter,
   DialogClose,
   Select,
-  SelectTrigger,
-  SelectContent,
-  SelectItem,
-  SelectValue,
 } from '@practics/ui'
 import { Search, UserPlus } from 'lucide-react'
 
@@ -173,17 +169,14 @@ export default function ContactsPage() {
               <Select
                 value={form.status}
                 onValueChange={v => setForm(f => ({ ...f, status: v as ContactStatus }))}
-              >
-                <SelectTrigger>
-                  <SelectValue placeholder="Status" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="Lead">Lead</SelectItem>
-                  <SelectItem value="Qualified">Qualified</SelectItem>
-                  <SelectItem value="Customer">Customer</SelectItem>
-                  <SelectItem value="Churned">Churned</SelectItem>
-                </SelectContent>
-              </Select>
+                placeholder="Status"
+                options={[
+                  { value: 'Lead', label: 'Lead' },
+                  { value: 'Qualified', label: 'Qualified' },
+                  { value: 'Customer', label: 'Customer' },
+                  { value: 'Churned', label: 'Churned' },
+                ]}
+              />
             </div>
             <DialogFooter>
               <DialogClose asChild>

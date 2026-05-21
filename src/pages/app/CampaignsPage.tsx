@@ -16,10 +16,6 @@ import {
   DialogClose,
   Input,
   Select,
-  SelectTrigger,
-  SelectContent,
-  SelectItem,
-  SelectValue,
 } from '@practics/ui'
 import { Plus } from 'lucide-react'
 
@@ -165,16 +161,13 @@ export default function CampaignsPage() {
               <Select
                 value={form.type}
                 onValueChange={v => setForm(f => ({ ...f, type: v as CampaignType }))}
-              >
-                <SelectTrigger>
-                  <SelectValue placeholder="Type" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="Email">Email</SelectItem>
-                  <SelectItem value="SMS">SMS</SelectItem>
-                  <SelectItem value="Push">Push</SelectItem>
-                </SelectContent>
-              </Select>
+                placeholder="Type"
+                options={[
+                  { value: 'Email', label: 'Email' },
+                  { value: 'SMS', label: 'SMS' },
+                  { value: 'Push', label: 'Push' },
+                ]}
+              />
             </div>
             <DialogFooter>
               <DialogClose asChild>
